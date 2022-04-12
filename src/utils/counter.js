@@ -2,9 +2,22 @@ const counter = (array, type) => {
   let cont = [];
   let total = 1;
 
-  const itens = array.sort(function (a, b) {
-    if (a.city < b.city) return -1;
-    if (a.city > b.city) return 1;
+  const itens = array.sort((a, b) => {
+    if (type === "city") {
+      if (a.city < b.city) return -1;
+      if (a.city > b.city) return 1;
+      return 0;
+    }
+    if (type === "state") {
+      if (a.state_name < b.state_name) return -1;
+      if (a.state_name > b.state_name) return 1;
+      return 0;
+    }
+    if (type === "country") {
+      if (a.country_name < b.country_name) return -1;
+      if (a.country_name > b.country_name) return 1;
+      return 0;
+    }
     return 0;
   });
 

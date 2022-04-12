@@ -6,7 +6,7 @@ import ChartState from "./ChartState";
 
 export default function Home() {
   const [cities, setCities] = useState([]);
-  const [states, seStates] = useState([]);
+  const [states, setStates] = useState([]);
   const [countries, setCountries] = useState([]);
   useEffect(() => {
     getCities();
@@ -29,7 +29,7 @@ export default function Home() {
     api
       .get("/state")
       .then(function (response) {
-        seStates(response.data);
+        setStates(response.data);
       })
       .catch(function (error) {
         console.log(error);
