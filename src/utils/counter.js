@@ -1,6 +1,13 @@
-const counter = (itens, type) => {
+const counter = (array, type) => {
   let cont = [];
   let total = 1;
+
+  const itens = array.sort(function (a, b) {
+    if (a.city < b.city) return -1;
+    if (a.city > b.city) return 1;
+    return 0;
+  });
+
   for (let i = 0; i < itens.length; i++) {
     if (type === "city") {
       if (i < itens.length - 1 && itens[i].city === itens[i + 1].city) {

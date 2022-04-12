@@ -1,6 +1,6 @@
 import React from "react";
 import { CanvasJSChart } from "canvasjs-react-charts";
-import counter from "../utils/CounterCity";
+import counter from "../utils/counter";
 
 export default function ChartCity({ cities }) {
   const citiesTotal = counter(cities, "city");
