@@ -9,43 +9,22 @@ export default function Home() {
   const [states, setStates] = useState([]);
   const [countries, setCountries] = useState([]);
   useEffect(() => {
-    getCities();
-    getStates();
-    getCountry();
+    getData();
   }, []);
 
-  const getCities = async () => {
+  const getData = async () => {
     api
-      .get("/city")
+      .get("/data")
       .then(function (response) {
-        setCities(response.data);
+        setCities(response.data.city);
+        setStates(response.data.state);
+        setCountries(response.data.country);
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
-  const getStates = async () => {
-    api
-      .get("/state")
-      .then(function (response) {
-        setStates(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
-  const getCountry = async () => {
-    api
-      .get("/country")
-      .then(function (response) {
-        setCountries(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
   return (
     <>
       <ChartCity cities={cities} />
